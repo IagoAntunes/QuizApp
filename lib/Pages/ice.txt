@@ -1,0 +1,185 @@
+Container(
+              //   decoration: BoxDecoration(
+              //     color: Colors.white,
+              //     borderRadius: BorderRadius.all(
+              //       Radius.circular(10),
+              //     ),
+              //   ),
+              //   child: Column(
+              //     children: [
+              //       Padding(
+              //         padding: const EdgeInsets.symmetric(
+              //             horizontal: 5, vertical: 10),
+              //         child: Row(
+              //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //           children: [
+              //             Text(
+              //               'Top',
+              //               style: GoogleFonts.rubik(
+              //                 fontWeight: FontWeight.w500,
+              //                 color: Colors.grey,
+              //               ),
+              //             ),
+              //             Text(
+              //               'Quiz',
+              //               style: GoogleFonts.rubik(
+              //                 fontWeight: FontWeight.w500,
+              //                 color: Colors.grey,
+              //               ),
+              //             ),
+              //             Text(
+              //               'Categories',
+              //               style: GoogleFonts.rubik(
+              //                 fontWeight: FontWeight.w500,
+              //                 color: Colors.grey,
+              //               ),
+              //             ),
+              //             Text(
+              //               'Friends',
+              //               style: GoogleFonts.rubik(
+              //                 fontWeight: FontWeight.w500,
+              //                 color: Colors.grey,
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       ),
+              //       Container(
+              //         height: size.height * 0.65,
+              //         decoration: const BoxDecoration(
+              //           color: Colors.white,
+              //           borderRadius: BorderRadius.only(
+              //             topLeft: Radius.circular(20),
+              //             topRight: Radius.circular(20),
+              //           ),
+              //         ),
+              //         child: Column(
+              //           children: [
+              //             Padding(
+              //               padding: const EdgeInsets.all(12),
+              //               child: Row(
+              //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //                 children: const [
+              //                   Text(
+              //                     'Quiz',
+              //                     style: GoogleFonts.rubik(
+              //                         fontSize: 18,
+              //                         fontWeight: FontWeight.bold),
+              //                   ),
+              //                   Text(
+              //                     "See all",
+              //                     style: GoogleFonts.rubik(
+              //                       color: primaryColor,
+              //                       fontWeight: FontWeight.w500,
+              //                     ),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //             SizedBox(
+              //               height: 180,
+              //               child: ListView.builder(
+              //                 itemBuilder: (context, index) {
+              //                   return Padding(
+              //                     padding: const EdgeInsets.all(10),
+              //                     child: Container(
+              //                       decoration: BoxDecoration(
+              //                         border: Border.all(
+              //                           color:
+              //                               Color.fromARGB(255, 197, 195, 195),
+              //                           width: 1.5,
+              //                         ),
+              //                         borderRadius: BorderRadius.all(
+              //                           Radius.circular(10),
+              //                         ),
+              //                       ),
+              //                       child: ListTile(
+              //                         title: Text(
+              //                           "Math",
+              //                           style: GoogleFonts.rubik(color: Colors.black),
+              //                         ),
+              //                         subtitle: Text('12 Quizes'),
+              //                         leading: Container(
+              //                           width: 40,
+              //                           decoration: BoxDecoration(
+              //                             borderRadius: BorderRadius.only(
+              //                               topLeft: Radius.circular(10),
+              //                               bottomLeft: Radius.circular(10),
+              //                             ),
+              //                             color: Colors.lightBlue,
+              //                           ),
+              //                         ),
+              //                       ),
+              //                     ),
+              //                   );
+              //                 },
+              //                 itemCount: 2,
+              //               ),
+              //             ),
+              //             Padding(
+              //               padding: const EdgeInsets.all(12),
+              //               child: Row(
+              //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //                 children: const [
+              //                   Text(
+              //                     'Friends',
+              //                     style: GoogleFonts.rubik(
+              //                         fontSize: 18,
+              //                         fontWeight: FontWeight.bold),
+              //                   ),
+              //                   Text(
+              //                     "See all",
+              //                     style: GoogleFonts.rubik(
+              //                       color: primaryColor,
+              //                       fontWeight: FontWeight.w500,
+              //                     ),
+              //                   ),
+              //                 ],
+              //               ),
+              //             ),
+              //             SizedBox(
+              //               height: 180,
+              //               child: ListView.builder(
+              //                 itemBuilder: (context, index) {
+              //                   return Padding(
+              //                     padding: const EdgeInsets.all(10),
+              //                     child: Container(
+              //                       decoration: BoxDecoration(
+              //                         border: Border.all(
+              //                           color:
+              //                               Color.fromARGB(255, 197, 195, 195),
+              //                           width: 1.5,
+              //                         ),
+              //                         borderRadius: BorderRadius.all(
+              //                           Radius.circular(10),
+              //                         ),
+              //                       ),
+              //                       child: ListTile(
+              //                         title: Text(
+              //                           "Math",
+              //                           style: GoogleFonts.rubik(color: Colors.black),
+              //                         ),
+              //                         subtitle: Text('12 Quizes'),
+              //                         leading: Container(
+              //                           width: 40,
+              //                           decoration: BoxDecoration(
+              //                             borderRadius: BorderRadius.only(
+              //                               topLeft: Radius.circular(10),
+              //                               bottomLeft: Radius.circular(10),
+              //                             ),
+              //                             color: Colors.lightBlue,
+              //                           ),
+              //                         ),
+              //                       ),
+              //                     ),
+              //                   );
+              //                 },
+              //                 itemCount: 2,
+              //               ),
+              //             ),
+              //           ],
+              //         ),
+              //       )
+              //     ],
+              //   ),
+              // )

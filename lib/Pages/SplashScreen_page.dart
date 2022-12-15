@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -26,12 +27,13 @@ class SplashScreen extends StatelessWidget {
                   "assets/images/logo.png",
                   scale: 1.2,
                 ),
-                const Text(
+                Text(
                   'Queezy',
-                  style: TextStyle(
-                      fontSize: 32,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.rubik(
+                    fontSize: 32,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ],
             ),

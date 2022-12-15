@@ -1,39 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:quizapp/Pages/LoginInfo_page.dart';
 
 class RegisterPage extends StatefulWidget {
-  RegisterPage({super.key});
+  const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final keyApplicationId = 'rEe5OVkoHsWOc3igs1ofd7vvy0EqKhdStryjaKWJ';
-
-  final keyClientKey = 'YXxvvcmBBQMgUHBEUsWJaVdcW3aldSpQ2u0s3gwB';
-
-  final keyParseServerUrl = 'https://parseapi.back4app.com';
-
   TextEditingController controllerUsername = TextEditingController();
 
   TextEditingController controllerEmail = TextEditingController();
 
   TextEditingController controllerPassword = TextEditingController();
-
-  @override
-  void initState() {
-    inicia();
-    super.initState();
-  }
-
-  void inicia() async {
-    await Parse().initialize(keyApplicationId, keyParseServerUrl,
-        clientKey: keyClientKey, debug: true);
-  }
 
   void showSuccess(BuildContext context) {
     showDialog(
@@ -63,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
           title: const Text("Error!"),
           content: Text(errorMessage),
           actions: <Widget>[
-            new FloatingActionButton(
+            FloatingActionButton(
               child: const Text("OK"),
               onPressed: () {
                 Navigator.of(context).pop();
@@ -83,9 +65,10 @@ class _RegisterPageState extends State<RegisterPage> {
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text(
+        title: Text(
           'Register',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          style: GoogleFonts.rubik(
+              color: Colors.black, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -96,9 +79,9 @@ class _RegisterPageState extends State<RegisterPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Name',
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                  style: GoogleFonts.rubik(fontWeight: FontWeight.w600),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),
@@ -129,9 +112,9 @@ class _RegisterPageState extends State<RegisterPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Email',
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                  style: GoogleFonts.rubik(fontWeight: FontWeight.w600),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),
@@ -162,9 +145,9 @@ class _RegisterPageState extends State<RegisterPage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Password',
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                  style: GoogleFonts.rubik(fontWeight: FontWeight.w600),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5),

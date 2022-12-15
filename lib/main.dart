@@ -1,14 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:provider/provider.dart';
 import 'package:quizapp/Pages/SplashScreen_page.dart';
+import 'package:quizapp/Providers/listQuiz_provider.dart';
+import 'package:quizapp/Providers/listUsers_provider.dart';
+import 'package:quizapp/utils/const.dart';
 
 import 'Pages/LoginInfo_page.dart';
+import 'Providers/user_provider.dart';
 
 void main() async {
-  runApp(MaterialApp(home: const SplashScreen()));
+  runApp(const MaterialApp(home: SplashScreen()));
 
   await Future.delayed(const Duration(milliseconds: 2000));
-
-  runApp(MaterialApp(home: LoginInfoPage()));
+  await Parse().initialize(keyApplicationId, keyParseServerUrl,
+      clientKey: keyClientKey, debug: true);
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ListQuizProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ListUsersProvider(),
+        )
+      ],
+      child: const MaterialApp(home: LoginInfoPage()),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -19,6 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
