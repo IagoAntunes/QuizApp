@@ -8,6 +8,8 @@ import 'package:quizapp/Pages/QuizInfo_page.dart';
 import 'package:quizapp/Providers/listQuiz_provider.dart';
 import 'package:quizapp/utils/const.dart';
 
+import '../Services/createQuiz_service.dart';
+
 class ListQuizPage extends StatefulWidget {
   const ListQuizPage({super.key});
 
@@ -30,7 +32,20 @@ class _ListQuizPageState extends State<ListQuizPage> {
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(
-        actions: null,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              List<QuizModel> list = await CreateQuizService().getListQuiz();
+              ListQuizProvider provQuiz = context.read<ListQuizProvider>();
+              setState(() {
+                Provider.of<ListQuizProvider>(context, listen: false)
+                    .setListQuiz(list);
+                listQuiz = provQuiz.listQuiz;
+              });
+            },
+            icon: Icon(Icons.sync),
+          ),
+        ],
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         title: Text("List Quiz"),
