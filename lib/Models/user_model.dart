@@ -1,48 +1,45 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
 class User {
-  String className;
   String objectId;
   String createdAt;
   String updatedAt;
   String username;
   String email;
-  String sessionToken;
+  String linkAvatar;
   int points;
   User({
-    required this.className,
     required this.objectId,
     required this.createdAt,
     required this.updatedAt,
     required this.username,
     required this.email,
-    required this.sessionToken,
+    required this.linkAvatar,
     required this.points,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'className': className,
       'objectId': objectId,
       'createdAt': createdAt,
       'updatedAt': updatedAt,
       'username': username,
       'email': email,
-      'sessionToken': sessionToken,
+      'linkAvatar': linkAvatar,
       'points': points,
     };
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      className: map['className'] ?? "",
       objectId: map['objectId'] as String,
       createdAt: map['createdAt'] as String,
       updatedAt: map['updatedAt'] as String,
       username: map['username'] as String,
-      email: map['email'] ?? '',
-      sessionToken: map['sessionToken'] ?? '',
-      points: map['points'] ?? 1,
+      email: map['email'] ?? "",
+      linkAvatar: map['linkAvatar'] as String,
+      points: map['points'] as int,
     );
   }
 

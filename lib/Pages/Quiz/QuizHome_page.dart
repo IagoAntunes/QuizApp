@@ -3,11 +3,11 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/quiz_model.dart';
-import 'package:quizapp/Pages/CreateQuestions_page.dart';
+import 'package:quizapp/Pages/Nav/Create/CreateQuestions_page.dart';
 import 'package:quizapp/Pages/navpage.dart';
 import 'package:quizapp/utils/const.dart';
 
-import '../Services/createQuiz_service.dart';
+import '../../Services/createQuiz_service.dart';
 
 class QuizHomePage extends StatefulWidget {
   QuizHomePage({super.key, required this.quiz});

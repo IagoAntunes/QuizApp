@@ -6,7 +6,7 @@ import 'package:quizapp/Providers/listQuiz_provider.dart';
 import 'package:quizapp/Providers/listUsers_provider.dart';
 import 'package:quizapp/utils/const.dart';
 
-import 'Pages/LoginInfo_page.dart';
+import 'Pages/Login/LoginInfo_page.dart';
 import 'Providers/user_provider.dart';
 
 void main() async {
@@ -36,11 +36,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'QuizGame',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

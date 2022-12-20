@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/quiz_model.dart';
-import 'package:quizapp/Pages/CreateQuestions_page.dart';
-import 'package:quizapp/Pages/QuizHome_page.dart';
+import 'package:quizapp/Pages/Nav/Create/CreateQuestions_page.dart';
+import 'package:quizapp/Pages/Quiz/QuizHome_page.dart';
 import 'package:quizapp/utils/const.dart';
 
 class CreateQuizPage extends StatefulWidget {
@@ -16,6 +16,9 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
   TextEditingController controllerTitle = TextEditingController();
   TextEditingController controllerCategory = TextEditingController();
   TextEditingController controllerDescription = TextEditingController();
+
+  List<int> listItems = [1, 2, 3];
+  int dropdownValue = 1;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -112,7 +115,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 20),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
                         padding: EdgeInsets.only(bottom: 5),
@@ -125,6 +128,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                         ),
                       ),
                       Container(
+                        width: 200,
                         padding: EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           border: Border.all(width: 0.5, color: Colors.grey),
@@ -132,14 +136,25 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                             Radius.circular(20),
                           ),
                         ),
-                        child: TextField(
-                          controller: controllerCategory,
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Choose Quiz Category',
-                            contentPadding:
-                                EdgeInsets.symmetric(horizontal: 20),
-                          ),
+                        child: DropdownButton<int>(
+                          value: dropdownValue,
+                          icon: const Icon(Icons.arrow_downward),
+                          elevation: 16,
+                          onChanged: (value) {
+                            setState(() {
+                              dropdownValue = value!;
+                            });
+                          },
+                          items: listItems.map<DropdownMenuItem<int>>(
+                            (int value) {
+                              return DropdownMenuItem<int>(
+                                value: value,
+                                child: Text(
+                                  value.toString(),
+                                ),
+                              );
+                            },
+                          ).toList(),
                         ),
                       ),
                     ],

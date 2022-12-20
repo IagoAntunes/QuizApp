@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Services/Users_service.dart';
 import 'package:quizapp/utils/const.dart';
 
-import '../Models/User_model.dart';
+import '../../Models/User_model.dart';
 
 class ListFriendsPage extends StatelessWidget {
   ListFriendsPage({super.key});
@@ -83,9 +83,9 @@ class ListFriendsPage extends StatelessWidget {
                           //Icone
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Image.asset(
-                              "assets/images/gamer.png",
-                              scale: 0.6,
+                            child: Image.network(
+                              listUsers[index].linkAvatar,
+                              scale: 8,
                             ),
                           ),
                           //Textos
@@ -95,7 +95,7 @@ class ListFriendsPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  listUsers[index].username.length < 9
+                                  listUsers[index].username.length < 8
                                       ? listUsers[index].username
                                       : listUsers[index]
                                           .username
@@ -103,7 +103,7 @@ class ListFriendsPage extends StatelessWidget {
                                   overflow: TextOverflow.clip,
                                   style: GoogleFonts.rubik(
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 18,
+                                    fontSize: 16,
                                   ),
                                 ),
                                 Text(
@@ -136,7 +136,11 @@ class ListFriendsPage extends StatelessWidget {
               ),
             );
           } else {
-            return const CircularProgressIndicator();
+            return Center(
+              child: const CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            );
           }
         },
       ),

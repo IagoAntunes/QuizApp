@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:quizapp/Pages/ReviewAnswers_page.dart';
+import 'package:quizapp/Pages/Quiz/ReviewAnswers_page.dart';
 import 'package:quizapp/Pages/navpage.dart';
 
-import '../Models/game_model.dart';
-import '../Models/quiz_model.dart';
-import '../utils/const.dart';
+import '../../Models/game_model.dart';
+import '../../Models/quiz_model.dart';
+import '../../utils/const.dart';
 
 class InfoEndGamePage extends StatefulWidget {
   const InfoEndGamePage({

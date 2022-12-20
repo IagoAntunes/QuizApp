@@ -1,10 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:quizapp/Models/quiz_model.dart';
-import 'package:quizapp/Pages/QuizGame_page.dart';
+import 'package:quizapp/store/QuizCounter.store.dart';
 import 'package:quizapp/utils/const.dart';
 
 class SplashCountPage extends StatefulWidget {
@@ -17,38 +16,38 @@ class SplashCountPage extends StatefulWidget {
 class _SplashCountPageState extends State<SplashCountPage> {
   Timer? countdownTimer;
   Duration myDuration = const Duration(seconds: 5);
-
+  final store = SplashCounterState();
   @override
   void initState() {
-    startTimer();
+    store.iniciar(context, widget.quiz);
+
     super.initState();
   }
 
-  void startTimer() {
-    countdownTimer =
-        Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
-  }
+  // void startTimer() {
+  //   countdownTimer =
+  //       Timer.periodic(const Duration(seconds: 1), (_) => setCountDown());
+  // }
 
-  // Step 6
-  void setCountDown() {
-    const reduceSecondsBy = 1;
-    setState(
-      () {
-        final seconds = myDuration.inSeconds - reduceSecondsBy;
-        if (seconds < 0) {
-          countdownTimer!.cancel();
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => QuizGamePage(quiz: widget.quiz),
-            ),
-          );
-        } else {
-          myDuration = Duration(seconds: seconds);
-        }
-      },
-    );
-  }
+  // void setCountDown() {
+  //   const reduceSecondsBy = 1;
+  //   setState(
+  //     () {
+  //       final seconds = myDuration.inSeconds - reduceSecondsBy;
+  //       if (seconds < 0) {
+  //         countdownTimer!.cancel();
+  //         Navigator.push(
+  //           context,
+  //           MaterialPageRoute(
+  //             builder: (context) => QuizGamePage(quiz: widget.quiz),
+  //           ),
+  //         );
+  //       } else {
+  //         myDuration = Duration(seconds: seconds);
+  //       }
+  //     },
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -67,12 +66,14 @@ class _SplashCountPageState extends State<SplashCountPage> {
               color: Colors.yellow,
             ),
           ),
-          child: Text(
-            '$seconds',
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 80,
+          child: Observer(
+            builder: (context) => Text(
+              '${store.segundos}',
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+                fontSize: 80,
+              ),
             ),
           ),
         ),

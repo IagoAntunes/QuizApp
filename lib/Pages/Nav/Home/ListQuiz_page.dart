@@ -4,11 +4,11 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:quizapp/Models/quiz_model.dart';
-import 'package:quizapp/Pages/QuizInfo_page.dart';
+import 'package:quizapp/Pages/Quiz/QuizInfo_page.dart';
 import 'package:quizapp/Providers/listQuiz_provider.dart';
 import 'package:quizapp/utils/const.dart';
 
-import '../Services/createQuiz_service.dart';
+import '../../../Services/createQuiz_service.dart';
 
 class ListQuizPage extends StatefulWidget {
   const ListQuizPage({super.key});
@@ -37,6 +37,7 @@ class _ListQuizPageState extends State<ListQuizPage> {
             onPressed: () async {
               List<QuizModel> list = await CreateQuizService().getListQuiz();
               ListQuizProvider provQuiz = context.read<ListQuizProvider>();
+              //Ok SetState
               setState(() {
                 Provider.of<ListQuizProvider>(context, listen: false)
                     .setListQuiz(list);

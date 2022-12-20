@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/answer_model.dart';
 import 'package:quizapp/utils/const.dart';
 
-import '../Models/game_model.dart';
-import '../Models/quiz_model.dart';
+import '../../Models/game_model.dart';
+import '../../Models/quiz_model.dart';
 
 class ReviewAnswersPage extends StatefulWidget {
   ReviewAnswersPage({

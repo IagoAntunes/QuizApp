@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/game_model.dart';
 import 'package:quizapp/Models/quiz_model.dart';
-import 'package:quizapp/Pages/InfoEndGame_page.dart';
+import 'package:quizapp/Pages/Quiz/InfoEndGame_page.dart';
 import 'package:quizapp/utils/const.dart';
 
 class QuizGamePage extends StatefulWidget {

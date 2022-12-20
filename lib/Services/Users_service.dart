@@ -24,6 +24,7 @@ class UsersService {
           "createdAt": user['createdAt'] as String,
           "updatedAt": user['updatedAt'] as String,
           "points": user['points'] as int,
+          "linkAvatar": user['linkAvatar'] as String,
         };
         listUsers.add(User.fromMap(map));
       }

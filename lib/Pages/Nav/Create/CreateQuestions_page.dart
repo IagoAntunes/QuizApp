@@ -5,8 +5,8 @@ import 'package:quizapp/Models/question_model.dart';
 import 'package:quizapp/Pages/navpage.dart';
 import 'package:quizapp/Services/createQuiz_service.dart';
 
-import '../Models/quiz_model.dart';
-import '../utils/const.dart';
+import '../../../Models/quiz_model.dart';
+import '../../../utils/const.dart';
 
 class CreateQuestionsPage extends StatefulWidget {
   CreateQuestionsPage({

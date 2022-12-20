@@ -5,9 +5,9 @@ import 'package:quizapp/Providers/listUsers_provider.dart';
 import 'package:quizapp/Services/Users_service.dart';
 import 'package:quizapp/utils/const.dart';
 
-import '../Models/User_model.dart';
-import '../Models/quiz_model.dart';
-import '../Providers/listQuiz_provider.dart';
+import '../../../Models/User_model.dart';
+import '../../../Models/quiz_model.dart';
+import '../../../Providers/listQuiz_provider.dart';
 
 class DiscoverPage extends StatefulWidget {
   const DiscoverPage({super.key});
@@ -59,11 +59,16 @@ class _DiscoverPageState extends State<DiscoverPage> {
                       child: TextField(
                         style: GoogleFonts.rubik(color: Colors.white),
                         decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: Colors.white,
-                            ),
-                            border: InputBorder.none),
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          ),
+                          border: InputBorder.none,
+                          hintText: "Type a Quiz",
+                          hintStyle: TextStyle(
+                            color: Colors.white30,
+                          ),
+                        ),
                       ),
                     ),
                   ),

@@ -1,7 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/quiz_model.dart';
-import 'package:quizapp/Pages/SplashCounter_page.dart';
+import 'package:quizapp/Pages/Quiz/SplashCounter_page.dart';
 import 'package:quizapp/utils/const.dart';
 
 class QuizInfoPage extends StatefulWidget {
@@ -25,8 +27,9 @@ class _QuizInfoPageState extends State<QuizInfoPage> {
       ),
       body: Column(
         children: [
-          SizedBox(
-            height: 200,
+          Image.asset(
+            "assets/images/quizInfo/${quizImages[Random().nextInt(3)]}.png",
+            scale: 1.5,
           ),
           Expanded(
             child: Padding(
