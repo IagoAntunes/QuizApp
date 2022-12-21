@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:provider/provider.dart';
 import 'package:quizapp/Pages/SplashScreen_page.dart';
+import 'package:quizapp/Providers/listCategory_provider.dart';
 import 'package:quizapp/Providers/listQuiz_provider.dart';
 import 'package:quizapp/Providers/listUsers_provider.dart';
 import 'package:quizapp/utils/const.dart';
@@ -10,7 +11,8 @@ import 'Pages/Login/LoginInfo_page.dart';
 import 'Providers/user_provider.dart';
 
 void main() async {
-  runApp(const MaterialApp(home: SplashScreen()));
+  runApp(const MaterialApp(
+      debugShowCheckedModeBanner: false, home: SplashScreen()));
 
   await Future.delayed(const Duration(milliseconds: 2000));
   await Parse().initialize(keyApplicationId, keyParseServerUrl,
@@ -26,9 +28,13 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => ListUsersProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ListCategoryProvider(),
         )
       ],
-      child: const MaterialApp(home: LoginInfoPage()),
+      child: const MaterialApp(
+          debugShowCheckedModeBanner: false, home: LoginInfoPage()),
     ),
   );
 }

@@ -65,7 +65,7 @@ class _QuizHomePageState extends State<QuizHomePage> {
                               size: 20,
                             ),
                             Text(
-                              widget.quiz.idCategory.toString(),
+                              widget.quiz.category.name,
                               style: GoogleFonts.rubik(
                                 color: primaryColor,
                                 fontWeight: FontWeight.w600,

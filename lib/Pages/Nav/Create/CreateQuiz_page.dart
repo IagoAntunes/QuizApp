@@ -1,9 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/quiz_model.dart';
 import 'package:quizapp/Pages/Nav/Create/CreateQuestions_page.dart';
+import 'package:quizapp/Pages/Nav/Create/SelectCategory_page.dart';
 import 'package:quizapp/Pages/Quiz/QuizHome_page.dart';
 import 'package:quizapp/utils/const.dart';
+
+import '../../../Models/category_model.dart';
 
 class CreateQuizPage extends StatefulWidget {
   const CreateQuizPage({super.key});
@@ -112,52 +116,45 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 5),
-                        child: Text(
-                          'Quiz Category',
-                          style: GoogleFonts.rubik(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
+                GestureDetector(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SelectCategoryPage(),
+                      )),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            'Quiz Category',
+                            style: GoogleFonts.rubik(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                        width: 200,
-                        padding: EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          border: Border.all(width: 0.5, color: Colors.grey),
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(20),
+                        Container(
+                          padding: EdgeInsets.all(15),
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1, color: primaryColor),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(20),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Text("Category"),
+                              Icon(Icons.arrow_right),
+                            ],
                           ),
                         ),
-                        child: DropdownButton<int>(
-                          value: dropdownValue,
-                          icon: const Icon(Icons.arrow_downward),
-                          elevation: 16,
-                          onChanged: (value) {
-                            setState(() {
-                              dropdownValue = value!;
-                            });
-                          },
-                          items: listItems.map<DropdownMenuItem<int>>(
-                            (int value) {
-                              return DropdownMenuItem<int>(
-                                value: value,
-                                child: Text(
-                                  value.toString(),
-                                ),
-                              );
-                            },
-                          ).toList(),
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
@@ -217,9 +214,10 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                             controllerDescription.text.toString().isNotEmpty) {
                           QuizModel quiz = QuizModel(
                             title: controllerTitle.text.toString(),
-                            idCategory: controllerCategory.text.toString(),
                             description: controllerDescription.text.toString(),
                             listQuestions: [],
+                            category: CategoryModel(
+                                name: "teste", icon: "teste", objectId: "111"),
                           );
                           Navigator.push(
                             context,

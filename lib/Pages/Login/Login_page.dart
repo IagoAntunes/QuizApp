@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:provider/provider.dart';
+import 'package:quizapp/Models/category_model.dart';
 import 'package:quizapp/Models/quiz_model.dart';
 import 'package:quizapp/Pages/navpage.dart';
+import 'package:quizapp/Providers/listCategory_provider.dart';
 import 'package:quizapp/Providers/listQuiz_provider.dart';
 import 'package:quizapp/Providers/listUsers_provider.dart';
 import 'package:quizapp/Providers/user_provider.dart';
 import 'package:quizapp/Services/Users_service.dart';
+import 'package:quizapp/Services/category_service.dart';
 import 'package:quizapp/Services/createQuiz_service.dart';
 
 import '../../Models/User_model.dart';
@@ -36,6 +39,10 @@ class _LoginPageState extends State<LoginPage> {
         Provider.of<UserProvider>(context, listen: false).setUser(userT);
         List<QuizModel> list = await CreateQuizService().getListQuiz();
         List<User> listUsers = await UsersService().getUsers();
+        List<CategoryModel> listCategory =
+            await CategoryService().getCategories();
+        Provider.of<ListCategoryProvider>(context, listen: false)
+            .setListCategory(listCategory);
         Provider.of<ListQuizProvider>(context, listen: false).setListQuiz(list);
         Provider.of<ListUsersProvider>(context, listen: false)
             .setUsers(listUsers);
