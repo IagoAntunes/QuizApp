@@ -15,6 +15,7 @@ import 'package:quizapp/Services/category_service.dart';
 import 'package:quizapp/Services/createQuiz_service.dart';
 
 import '../../Models/User_model.dart';
+import '../../Providers/userParse_provider.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -33,6 +34,7 @@ class _LoginPageState extends State<LoginPage> {
       final password = controllerPassword.text.trim();
 
       final user = ParseUser(username, password, null);
+      Provider.of<UserParseProvider>(context, listen: false).setUserParse(user);
       var response = await user.login();
       User userT = User.fromJson(response.result.toString());
       if (response.success) {

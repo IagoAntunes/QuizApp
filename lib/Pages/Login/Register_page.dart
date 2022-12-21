@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:provider/provider.dart';
+import 'package:quizapp/Providers/userParse_provider.dart';
 
 import '../../utils/const.dart';
 import 'LoginInfo_page.dart';
@@ -238,7 +240,6 @@ class _RegisterPageState extends State<RegisterPage> {
             ..set("linkAvatar", listAvatarImages[selectedIndex]);
 
           var response = await user.signUp();
-
           if (response.success) {
             showSuccess(context);
             Navigator.pushReplacement(

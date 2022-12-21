@@ -5,6 +5,7 @@ import 'package:quizapp/Pages/SplashScreen_page.dart';
 import 'package:quizapp/Providers/listCategory_provider.dart';
 import 'package:quizapp/Providers/listQuiz_provider.dart';
 import 'package:quizapp/Providers/listUsers_provider.dart';
+import 'package:quizapp/Providers/userParse_provider.dart';
 import 'package:quizapp/utils/const.dart';
 
 import 'Pages/Login/LoginInfo_page.dart';
@@ -31,6 +32,9 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (context) => ListCategoryProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserParseProvider(),
         )
       ],
       child: const MaterialApp(

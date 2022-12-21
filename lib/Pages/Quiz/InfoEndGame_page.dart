@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:provider/provider.dart';
 import 'package:quizapp/Pages/Quiz/ReviewAnswers_page.dart';
 import 'package:quizapp/Pages/navpage.dart';
+import 'package:quizapp/Providers/userParse_provider.dart';
+import 'package:quizapp/Providers/user_provider.dart';
 
+import '../../Models/User_model.dart';
 import '../../Models/game_model.dart';
 import '../../Models/quiz_model.dart';
 import '../../utils/const.dart';
@@ -72,7 +76,7 @@ class _InfoEndGamePageState extends State<InfoEndGamePage> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
-                          'You get +35 Quiz Points',
+                          'You get +${widget.quiz.points} Quiz Points',
                           textAlign: TextAlign.center,
                           style: GoogleFonts.rubik(
                             color: Colors.white,
@@ -261,6 +265,20 @@ class _InfoEndGamePageState extends State<InfoEndGamePage> {
                           ),
                         ),
                         onPressed: () {
+                          UserParseProvider parseProv =
+                              context.read<UserParseProvider>();
+                          ParseUser parseUser = parseProv.userParse!;
+                          UserProvider userProv = context.read<UserProvider>();
+                          User? user = userProv.user;
+                          parseUser.set(
+                            'points',
+                            user!.points + int.parse(widget.quiz.points),
+                          );
+                          parseUser.update();
+
+                          print(user!.points);
+                          print(int.parse(widget.quiz.points));
+                          print(user!.points + int.parse(widget.quiz.points));
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

@@ -1,10 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/quiz_model.dart';
 import 'package:quizapp/Pages/Nav/Create/CreateQuestions_page.dart';
 import 'package:quizapp/Pages/Nav/Create/SelectCategory_page.dart';
 import 'package:quizapp/Pages/Quiz/QuizHome_page.dart';
+import 'package:quizapp/store/QuizPoints.store.dart';
 import 'package:quizapp/utils/const.dart';
 
 import '../../../Models/category_model.dart';
@@ -25,6 +27,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
   int dropdownValue = 1;
   @override
   Widget build(BuildContext context) {
+    final store = QuizPointStore();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: primaryColor,
@@ -41,7 +44,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            height: size.height - size.height * 0.15,
+            height: size.height - size.height * 0.14,
             padding: const EdgeInsets.all(15),
             decoration: const BoxDecoration(
               color: Colors.white,
@@ -53,7 +56,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  height: 200,
+                  height: 160,
                   decoration: const BoxDecoration(
                     color: Color(0xffefeefc),
                     borderRadius: BorderRadius.all(
@@ -206,6 +209,87 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 5),
+                        child: Text(
+                          'Points',
+                          style: GoogleFonts.rubik(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                      Observer(
+                        builder: (context) => Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 0.5, color: Colors.grey),
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(20),
+                            ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              GestureDetector(
+                                onTap: store.addPoint,
+                                child: Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    color: primaryColor,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                child: Text(
+                                  store.points.toString(),
+                                  style: GoogleFonts.rubik(fontSize: 18),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              GestureDetector(
+                                onTap: store.subtractPoint,
+                                child: Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    color: primaryColor,
+                                    borderRadius: BorderRadius.all(
+                                      Radius.circular(10),
+                                    ),
+                                  ),
+                                  child: Icon(
+                                    Icons.remove,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Expanded(child: SizedBox()),
                 Padding(
                   padding: const EdgeInsets.all(25),
@@ -230,6 +314,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                             description: controllerDescription.text.toString(),
                             listQuestions: [],
                             category: category.value!,
+                            points: store.points.toString(),
                           );
                           Navigator.push(
                             context,

@@ -1,11 +1,15 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:quizapp/Providers/listCategory_provider.dart';
 import 'package:quizapp/Providers/listUsers_provider.dart';
 import 'package:quizapp/Services/Users_service.dart';
 import 'package:quizapp/utils/const.dart';
 
 import '../../../Models/User_model.dart';
+import '../../../Models/category_model.dart';
 import '../../../Models/quiz_model.dart';
 import '../../../Providers/listQuiz_provider.dart';
 
@@ -19,12 +23,25 @@ class DiscoverPage extends StatefulWidget {
 class _DiscoverPageState extends State<DiscoverPage> {
   List<User> list = [];
   List<QuizModel> listQuiz = [];
+  List<CategoryModel> listCategory = [];
+  String? indexMaior;
   @override
   void initState() {
     ListUsersProvider prov2 = context.read<ListUsersProvider>();
     ListQuizProvider provQuiz = context.read<ListQuizProvider>();
+    ListCategoryProvider provCategory = context.read<ListCategoryProvider>();
     list = prov2.getListUsers;
     listQuiz = provQuiz.getListQuiz();
+    listCategory = provCategory.listCategory;
+
+    int maior = 0;
+    for (var user in list) {
+      if (user.points > maior) {
+        indexMaior = user.objectId;
+        maior = user.points;
+      }
+    }
+
     super.initState();
   }
 
@@ -130,8 +147,9 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                       size: 15,
                                       color: Color(0xff8d3949),
                                     ),
+                                    SizedBox(width: 5),
                                     Text(
-                                      'Music 5 - ${listQuiz[0].listQuestions.length.toString()}',
+                                      '${listQuiz[0].category.name} - ${listQuiz[0].listQuestions.length.toString()}',
                                       style: GoogleFonts.rubik(
                                         color: Color(0xff8d3949),
                                         fontWeight: FontWeight.bold,
@@ -184,14 +202,18 @@ class _DiscoverPageState extends State<DiscoverPage> {
                             ),
                             child: ListTile(
                               title: Text(
-                                list[0].username,
+                                list
+                                    .where((element) =>
+                                        element.objectId == indexMaior)
+                                    .first
+                                    .username,
                                 style: GoogleFonts.rubik(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700,
                                 ),
                               ),
                               subtitle: Text(
-                                "${list[0].points} points",
+                                "${list.where((element) => element.objectId == indexMaior).first.points} points",
                                 style: GoogleFonts.rubik(
                                   color: Colors.white60,
                                   fontWeight: FontWeight.w400,
@@ -262,14 +284,14 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                     ),
                                   ),
                                   Text(
-                                    "Math",
+                                    listCategory[1].name,
                                     style: GoogleFonts.rubik(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.white,
                                     ),
                                   ),
                                   Text(
-                                    '21 Quizzes',
+                                    '${listQuiz.where((element) => element.category.objectId == "OD9ODiMRDC").length} Quizzes',
                                     style: GoogleFonts.rubik(
                                       color: Colors.white54,
                                       fontWeight: FontWeight.w500,
@@ -302,14 +324,14 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                     ),
                                   ),
                                   Text(
-                                    "Science",
+                                    listCategory[0].name,
                                     style: GoogleFonts.rubik(
                                       fontWeight: FontWeight.w600,
                                       color: Colors.white,
                                     ),
                                   ),
                                   Text(
-                                    '21 Quizzes',
+                                    '${listQuiz.where((element) => element.category.objectId == "hrhxD9Jffe").length} Quizzes',
                                     style: GoogleFonts.rubik(
                                       color: Colors.white54,
                                       fontWeight: FontWeight.w500,

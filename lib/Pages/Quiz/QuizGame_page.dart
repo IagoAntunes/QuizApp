@@ -164,7 +164,7 @@ class _QuizGamePageState extends State<QuizGamePage> {
                             width: 10,
                           ),
                           Text(
-                            '35',
+                            widget.quiz.points,
                             style: GoogleFonts.rubik(
                               color: Colors.white,
                               fontWeight: FontWeight.w800,

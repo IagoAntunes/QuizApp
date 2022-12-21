@@ -53,7 +53,8 @@ class CreateQuizService {
           "iconImage": quiz['iconImage'],
           "category": CategoryModel.fromMap(
             quiz['category'],
-          )
+          ),
+          "points": quiz['points'],
         };
         list.add(QuizModel.fromMap(map));
       }

@@ -118,7 +118,7 @@ class _QuizInfoPageState extends State<QuizInfoPage> {
                                 ),
                               ),
                               Text(
-                                "+100 points",
+                                "+${widget.quiz.points} points",
                                 style: GoogleFonts.rubik(
                                   fontSize: 15,
                                   color: Colors.black,

@@ -8,6 +8,7 @@ import 'category_model.dart';
 class QuizModel {
   String title;
   String description;
+  String points;
   List<QuestionModel> listQuestions;
   String? iconImage;
   CategoryModel category;
@@ -15,6 +16,7 @@ class QuizModel {
     required this.title,
     required this.description,
     required this.listQuestions,
+    required this.points,
     this.iconImage,
     required this.category,
   });
@@ -26,6 +28,7 @@ class QuizModel {
       'listQuestions': listQuestions.map((x) => x.toMap()).toList(),
       'iconImage': iconImage,
       'category': category.toMap(),
+      'points': points,
     };
   }
 
@@ -37,6 +40,7 @@ class QuizModel {
           (map['listQuestions'] as List<QuestionModel>)),
       iconImage: map['iconImage'] != null ? map['iconImage'] as String : null,
       category: map['category'],
+      points: map['points'] as String,
     );
   }
 
