@@ -13,9 +13,9 @@ class CategoryModel {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      '__type': "Pointer",
+      'className': "Category",
       'objectId': objectId,
-      'name': name,
-      'icon': icon,
     };
   }
 

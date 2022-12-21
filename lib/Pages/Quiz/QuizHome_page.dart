@@ -248,6 +248,7 @@ class _QuizHomePageState extends State<QuizHomePage> {
                           ),
                         ),
                         onPressed: () {
+                          print(widget.quiz.toJson());
                           CreateQuizService().postQuiz(widget.quiz.toJson());
                           Navigator.pushReplacement(
                             context,

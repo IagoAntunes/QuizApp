@@ -147,7 +147,7 @@ class _SelectCategoryPageState extends State<SelectCategoryPage> {
                       ),
                     ),
                     onPressed: () {
-                      Navigator.pop(context, store.selectedIndex);
+                      Navigator.pop(context, listCategory[store.selectedIndex]);
                     },
                     child: const Text("Next"),
                   ),

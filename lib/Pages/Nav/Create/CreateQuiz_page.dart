@@ -20,7 +20,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
   TextEditingController controllerTitle = TextEditingController();
   TextEditingController controllerCategory = TextEditingController();
   TextEditingController controllerDescription = TextEditingController();
-
+  final category = ValueNotifier<CategoryModel?>(null);
   List<int> listItems = [1, 2, 3];
   int dropdownValue = 1;
   @override
@@ -116,44 +116,57 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     ],
                   ),
                 ),
-                GestureDetector(
-                  onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => SelectCategoryPage(),
-                      )),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(bottom: 5),
-                          child: Text(
-                            'Quiz Category',
-                            style: GoogleFonts.rubik(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
+                ValueListenableBuilder(
+                  valueListenable: category,
+                  builder: (context, value, child) => GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SelectCategoryPage(),
+                        )).then((value) => category.value = value),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 5),
+                            child: Text(
+                              'Quiz Category',
+                              style: GoogleFonts.rubik(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: primaryColor),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(20),
+                          Container(
+                            padding: EdgeInsets.all(15),
+                            decoration: BoxDecoration(
+                              border: Border.all(width: 1, color: primaryColor),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(20),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                category.value == null
+                                    ? Text(
+                                        "Category",
+                                      )
+                                    : Text(
+                                        category.value!.name,
+                                        style: GoogleFonts.rubik(
+                                          fontWeight: FontWeight.w600,
+                                          color: primaryColor,
+                                        ),
+                                      ),
+                                Icon(Icons.arrow_right),
+                              ],
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: const [
-                              Text("Category"),
-                              Icon(Icons.arrow_right),
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -209,15 +222,14 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                         ),
                       ),
                       onPressed: () {
-                        if (controllerCategory.text.toString().isNotEmpty &&
+                        if (category.value != null &&
                             controllerTitle.text.toString().isNotEmpty &&
                             controllerDescription.text.toString().isNotEmpty) {
                           QuizModel quiz = QuizModel(
                             title: controllerTitle.text.toString(),
                             description: controllerDescription.text.toString(),
                             listQuestions: [],
-                            category: CategoryModel(
-                                name: "teste", icon: "teste", objectId: "111"),
+                            category: category.value!,
                           );
                           Navigator.push(
                             context,
