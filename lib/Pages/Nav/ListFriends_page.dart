@@ -120,14 +120,14 @@ class ListFriendsPage extends StatelessWidget {
                           //Coroa
                           index + 1 < 4
                               ? Container(
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Image.asset(
                                     "assets/images/crown.png",
                                     scale: 2.0,
                                     color: listColors[index],
                                   ),
                                 )
-                              : SizedBox(),
+                              : const SizedBox(),
                         ],
                       ),
                     );
@@ -136,8 +136,8 @@ class ListFriendsPage extends StatelessWidget {
               ),
             );
           } else {
-            return Center(
-              child: const CircularProgressIndicator(
+            return const Center(
+              child: CircularProgressIndicator(
                 color: Colors.white,
               ),
             );

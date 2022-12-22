@@ -16,8 +16,6 @@ class QuizInfoPage extends StatefulWidget {
 class _QuizInfoPageState extends State<QuizInfoPage> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: primaryColor,
       appBar: AppBar(

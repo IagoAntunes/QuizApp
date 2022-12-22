@@ -2,18 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/answer_model.dart';
 import 'package:quizapp/Models/question_model.dart';
-import 'package:quizapp/Pages/navpage.dart';
-import 'package:quizapp/Services/createQuiz_service.dart';
 
 import '../../../Models/quiz_model.dart';
 import '../../../utils/const.dart';
 
 class CreateQuestionsPage extends StatefulWidget {
-  CreateQuestionsPage({
+  const CreateQuestionsPage({
     super.key,
     required this.quiz,
   });
-  QuizModel quiz;
+  final QuizModel quiz;
 
   @override
   State<CreateQuestionsPage> createState() => _CreateQuestionsPageState();
@@ -144,7 +142,7 @@ class _CreateQuestionsPageState extends State<CreateQuestionsPage> {
         actions: null,
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
-        title: Text("Create Questions"),
+        title: const Text("Create Questions"),
         titleTextStyle:
             GoogleFonts.rubik(fontSize: 24, fontWeight: FontWeight.w500),
         centerTitle: true,
@@ -283,8 +281,8 @@ class _CreateQuestionsPageState extends State<CreateQuestionsPage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const Icon(
+                                    children: const [
+                                      Icon(
                                         Icons.check,
                                         color: primaryColor,
                                       ),

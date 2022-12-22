@@ -7,8 +7,8 @@ import 'package:quizapp/store/QuizCounter.store.dart';
 import 'package:quizapp/utils/const.dart';
 
 class SplashCountPage extends StatefulWidget {
-  SplashCountPage({super.key, required this.quiz});
-  QuizModel quiz;
+  const SplashCountPage({super.key, required this.quiz});
+  final QuizModel quiz;
   @override
   State<SplashCountPage> createState() => _SplashCountPageState();
 }

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../Login_page.dart';
-
 class Custom_Button extends StatelessWidget {
-  Custom_Button({
+  const Custom_Button({
     super.key,
     required this.onPressed,
     required this.title,
   });
-  Function() onPressed;
-  String title;
+  final Function() onPressed;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

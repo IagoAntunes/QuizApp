@@ -10,6 +10,6 @@ abstract class _SelectCategoryStore with Store {
 
   @action
   void changeSelectedIndex(int index) {
-    this.selectedIndex = index;
+    selectedIndex = index;
   }
 }

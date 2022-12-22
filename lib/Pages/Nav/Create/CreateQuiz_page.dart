@@ -1,9 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/quiz_model.dart';
-import 'package:quizapp/Pages/Nav/Create/CreateQuestions_page.dart';
 import 'package:quizapp/Pages/Nav/Create/SelectCategory_page.dart';
 import 'package:quizapp/Pages/Quiz/QuizHome_page.dart';
 import 'package:quizapp/store/QuizPoints.store.dart';
@@ -67,7 +65,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.image_outlined,
                         size: 100,
                         color: primaryColor,
@@ -89,7 +87,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(bottom: 5),
+                        padding: const EdgeInsets.only(bottom: 5),
                         child: Text(
                           'Title',
                           style: GoogleFonts.rubik(
@@ -99,7 +97,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.all(3),
+                        padding: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           border: Border.all(width: 0.5, color: Colors.grey),
                           borderRadius: const BorderRadius.all(
@@ -125,7 +123,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SelectCategoryPage(),
+                          builder: (context) => const SelectCategoryPage(),
                         )).then((value) => category.value = value),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 20),
@@ -133,7 +131,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(bottom: 5),
+                            padding: const EdgeInsets.only(bottom: 5),
                             child: Text(
                               'Quiz Category',
                               style: GoogleFonts.rubik(
@@ -143,7 +141,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                             ),
                           ),
                           Container(
-                            padding: EdgeInsets.all(15),
+                            padding: const EdgeInsets.all(15),
                             decoration: BoxDecoration(
                               border: Border.all(width: 1, color: primaryColor),
                               borderRadius: const BorderRadius.all(
@@ -154,7 +152,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 category.value == null
-                                    ? Text(
+                                    ? const Text(
                                         "Category",
                                       )
                                     : Text(
@@ -164,7 +162,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                                           color: primaryColor,
                                         ),
                                       ),
-                                Icon(Icons.arrow_right),
+                                const Icon(Icons.arrow_right),
                               ],
                             ),
                           ),
@@ -179,7 +177,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(bottom: 5),
+                        padding: const EdgeInsets.only(bottom: 5),
                         child: Text(
                           'Description',
                           style: GoogleFonts.rubik(
@@ -189,7 +187,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                         ),
                       ),
                       Container(
-                        padding: EdgeInsets.all(3),
+                        padding: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           border: Border.all(width: 0.5, color: Colors.grey),
                           borderRadius: const BorderRadius.all(
@@ -215,7 +213,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(bottom: 5),
+                        padding: const EdgeInsets.only(bottom: 5),
                         child: Text(
                           'Points',
                           style: GoogleFonts.rubik(
@@ -226,7 +224,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                       ),
                       Observer(
                         builder: (context) => Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
                             border: Border.all(width: 0.5, color: Colors.grey),
                             borderRadius: const BorderRadius.all(
@@ -240,20 +238,20 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                               GestureDetector(
                                 onTap: store.addPoint,
                                 child: Container(
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: const BoxDecoration(
                                     color: primaryColor,
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(10),
                                     ),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.add,
                                     color: Colors.white,
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Padding(
@@ -264,20 +262,20 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                                   style: GoogleFonts.rubik(fontSize: 18),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               GestureDetector(
                                 onTap: store.subtractPoint,
                                 child: Container(
-                                  padding: EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: const BoxDecoration(
                                     color: primaryColor,
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(10),
                                     ),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.remove,
                                     color: Colors.white,
                                   ),
@@ -290,7 +288,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                     ],
                   ),
                 ),
-                Expanded(child: SizedBox()),
+                const Expanded(child: SizedBox()),
                 Padding(
                   padding: const EdgeInsets.all(25),
                   child: SizedBox(

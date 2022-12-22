@@ -276,9 +276,6 @@ class _InfoEndGamePageState extends State<InfoEndGamePage> {
                           );
                           parseUser.update();
 
-                          print(user!.points);
-                          print(int.parse(widget.quiz.points));
-                          print(user!.points + int.parse(widget.quiz.points));
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

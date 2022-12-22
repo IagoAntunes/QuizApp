@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:quizapp/Models/quiz_model.dart';
@@ -44,12 +42,12 @@ class _ListQuizPageState extends State<ListQuizPage> {
                 listQuiz = provQuiz.listQuiz;
               });
             },
-            icon: Icon(Icons.sync),
+            icon: const Icon(Icons.sync),
           ),
         ],
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
-        title: Text("List Quiz"),
+        title: const Text("List Quiz"),
         titleTextStyle:
             GoogleFonts.rubik(fontSize: 24, fontWeight: FontWeight.w500),
         centerTitle: true,
@@ -58,7 +56,7 @@ class _ListQuizPageState extends State<ListQuizPage> {
         padding: const EdgeInsets.all(10),
         child: Container(
           height: size.height,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color.fromARGB(255, 247, 244, 244),
             borderRadius: BorderRadius.all(
               Radius.circular(5),
@@ -79,7 +77,7 @@ class _ListQuizPageState extends State<ListQuizPage> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Container(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 155, 144, 236),
                       borderRadius: BorderRadius.all(
@@ -110,7 +108,7 @@ class _ListQuizPageState extends State<ListQuizPage> {
                           color: Colors.transparent,
                         ),
                         child: Padding(
-                          padding: EdgeInsets.only(top: 5),
+                          padding: const EdgeInsets.only(top: 5),
                           child: Text(
                             "${index + 1}".toString(),
                             style: GoogleFonts.rubik(
@@ -122,7 +120,7 @@ class _ListQuizPageState extends State<ListQuizPage> {
                         ),
                       ),
                       trailing: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_right,
                           size: 35,
                           color: Colors.black,

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
 import 'package:quizapp/Models/category_model.dart';
 import 'package:quizapp/Providers/listCategory_provider.dart';
@@ -42,7 +39,7 @@ class _SelectCategoryPageState extends State<SelectCategoryPage> {
         actions: null,
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
-        title: Text("Choose Category"),
+        title: const Text("Choose Category"),
         titleTextStyle: GoogleFonts.rubik(
           fontSize: 24,
           fontWeight: FontWeight.w500,
@@ -50,12 +47,12 @@ class _SelectCategoryPageState extends State<SelectCategoryPage> {
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           height: size.height,
           width: size.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(
               Radius.circular(20),
@@ -77,28 +74,28 @@ class _SelectCategoryPageState extends State<SelectCategoryPage> {
                       builder: (context) => GestureDetector(
                         onTap: () => store.changeSelectedIndex(index),
                         child: Container(
-                          padding: EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(20),
                           decoration: BoxDecoration(
                             color: store.selectedIndex == index
-                                ? Color(0xffff8fa2)
-                                : Color(0xffefeefc),
-                            borderRadius: BorderRadius.all(
+                                ? const Color(0xffff8fa2)
+                                : const Color(0xffefeefc),
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(20),
                             ),
                           ),
                           child: Column(
                             children: [
                               Container(
-                                padding: EdgeInsets.all(10),
+                                padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   color: store.selectedIndex == index
-                                      ? Color.fromARGB(255, 247, 182, 194)
+                                      ? const Color.fromARGB(255, 247, 182, 194)
                                       : Colors.white,
-                                  borderRadius: BorderRadius.all(
+                                  borderRadius: const BorderRadius.all(
                                     Radius.circular(15),
                                   ),
                                 ),
-                                child: Icon(Icons.people),
+                                child: const Icon(Icons.people),
                               ),
                               Padding(
                                 padding:

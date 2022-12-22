@@ -18,7 +18,7 @@ abstract class _SplashCounterState with Store {
 
   @action
   void iniciar(BuildContext context, QuizModel quiz) {
-    cronometro = Timer.periodic(Duration(seconds: 1), (timer) {
+    cronometro = Timer.periodic(const Duration(seconds: 1), (timer) {
       segundos--;
       if (segundos == 0) {
         cronometro!.cancel();

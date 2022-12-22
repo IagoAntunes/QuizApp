@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Models/quiz_model.dart';
 import 'package:quizapp/Pages/Nav/Create/CreateQuestions_page.dart';
@@ -59,7 +57,7 @@ class _QuizHomePageState extends State<QuizHomePage> {
                         ),
                         child: Row(
                           children: [
-                            Icon(
+                            const Icon(
                               Icons.military_tech,
                               color: primaryColor,
                               size: 20,
@@ -174,7 +172,7 @@ class _QuizHomePageState extends State<QuizHomePage> {
                   ),
                   Container(
                     height: size.height * 0.4,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xffefeefc),
                       borderRadius: BorderRadius.all(
                         Radius.circular(20),
@@ -184,12 +182,12 @@ class _QuizHomePageState extends State<QuizHomePage> {
                       itemCount: widget.quiz.listQuestions.length,
                       itemBuilder: (context, index) {
                         return Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Row(
                             children: [
                               Container(
-                                padding: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
+                                padding: const EdgeInsets.all(10),
+                                decoration: const BoxDecoration(
                                   color: Colors.white,
                                   shape: BoxShape.circle,
                                 ),
@@ -248,12 +246,11 @@ class _QuizHomePageState extends State<QuizHomePage> {
                           ),
                         ),
                         onPressed: () {
-                          print(widget.quiz.toJson());
                           CreateQuizService().postQuiz(widget.quiz.toJson());
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => NavPage(),
+                              builder: (context) => const NavPage(),
                             ),
                           );
                         },

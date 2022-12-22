@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
@@ -120,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   onPressed: () {},
                   child: Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Text(
                       'Login With Google',
                       style: GoogleFonts.rubik(
@@ -142,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   onPressed: () {},
                   child: Padding(
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     child: Text(
                       'Login With Facebook',
                       style: GoogleFonts.rubik(
@@ -230,10 +229,10 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(15),
+                            padding: const EdgeInsets.all(15),
                             child: value
-                                ? CircularProgressIndicator()
-                                : Text('Login'),
+                                ? const CircularProgressIndicator()
+                                : const Text('Login'),
                           ),
                         ),
                       );
@@ -245,7 +244,7 @@ class _LoginPageState extends State<LoginPage> {
                       'Forgot Password',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.rubik(
-                        color: Color(0xff6A5AE0),
+                        color: const Color(0xff6A5AE0),
                         fontWeight: FontWeight.w600,
                       ),
                     ),

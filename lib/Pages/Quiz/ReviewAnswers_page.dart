@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quizapp/Models/answer_model.dart';
 import 'package:quizapp/utils/const.dart';
 
 import '../../Models/game_model.dart';
 import '../../Models/quiz_model.dart';
 
 class ReviewAnswersPage extends StatefulWidget {
-  ReviewAnswersPage({
+  const ReviewAnswersPage({
     super.key,
     required this.quiz,
     required this.game,
   });
-  QuizModel quiz;
-  GameModel game;
+  final QuizModel quiz;
+  final GameModel game;
   @override
   State<ReviewAnswersPage> createState() => _ReviewAnswersPageState();
 }
@@ -106,6 +103,10 @@ class _ReviewAnswersPageState extends State<ReviewAnswersPage> {
                                 Stack(
                                   children: [
                                     Positioned(
+                                      bottom: 1,
+                                      right: 10,
+                                      top: 25,
+                                      left: 1,
                                       child: Padding(
                                         padding:
                                             const EdgeInsets.only(left: 20),
@@ -136,10 +137,6 @@ class _ReviewAnswersPageState extends State<ReviewAnswersPage> {
                                           ),
                                         ),
                                       ),
-                                      bottom: 1,
-                                      right: 10,
-                                      top: 25,
-                                      left: 1,
                                     ),
                                     const SizedBox(
                                       height: 80,
@@ -260,15 +257,15 @@ class _ReviewAnswersPageState extends State<ReviewAnswersPage> {
                                     ],
                                   ),
                                 ),
-                                Expanded(
+                                const Expanded(
                                   child: SizedBox(),
                                 ),
                                 widget.game.listCorrect[index] == 1
-                                    ? Icon(
+                                    ? const Icon(
                                         Icons.check,
                                         color: Colors.green,
                                       )
-                                    : Icon(
+                                    : const Icon(
                                         Icons.close,
                                         color: Colors.red,
                                       ),

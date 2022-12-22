@@ -1,11 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:quizapp/Providers/listCategory_provider.dart';
 import 'package:quizapp/Providers/listUsers_provider.dart';
-import 'package:quizapp/Services/Users_service.dart';
 import 'package:quizapp/utils/const.dart';
 
 import '../../../Models/User_model.dart';
@@ -72,10 +69,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         color: Color(0xff5b4dc3),
                         borderRadius: BorderRadius.all(Radius.circular(20))),
                     child: Padding(
-                      padding: EdgeInsets.all(2),
+                      padding: const EdgeInsets.all(2),
                       child: TextField(
                         style: GoogleFonts.rubik(color: Colors.white),
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           prefixIcon: Icon(
                             Icons.search,
                             color: Colors.white,
@@ -135,23 +132,23 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                 Text(
                                   listQuiz[0].title,
                                   style: GoogleFonts.rubik(
-                                    color: Color(0xff8d3949),
+                                    color: const Color(0xff8d3949),
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,
                                   ),
                                 ),
                                 Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.phone,
                                       size: 15,
                                       color: Color(0xff8d3949),
                                     ),
-                                    SizedBox(width: 5),
+                                    const SizedBox(width: 5),
                                     Text(
                                       '${listQuiz[0].category.name} - ${listQuiz[0].listQuestions.length.toString()}',
                                       style: GoogleFonts.rubik(
-                                        color: Color(0xff8d3949),
+                                        color: const Color(0xff8d3949),
                                         fontWeight: FontWeight.bold,
                                         fontSize: 12,
                                       ),
@@ -193,7 +190,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                           padding: const EdgeInsets.only(
                               left: 5, top: 20, right: 5, bottom: 10),
                           child: Container(
-                            padding: EdgeInsets.all(5),
+                            padding: const EdgeInsets.all(5),
                             decoration: const BoxDecoration(
                               color: Color(0xff6a5ae0),
                               borderRadius: BorderRadius.all(
@@ -229,7 +226,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                                   color: Colors.transparent,
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.only(top: 5),
+                                  padding: const EdgeInsets.only(top: 5),
                                   child: Text(
                                     '1',
                                     style: GoogleFonts.rubik(
@@ -245,7 +242,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(bottom: 10, top: 10),
+                        padding: const EdgeInsets.only(bottom: 10, top: 10),
                         child: Text(
                           'Categories',
                           style: GoogleFonts.rubik(
@@ -265,7 +262,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
                               height: 90,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
-                                color: Color.fromARGB(255, 154, 221, 207),
+                                color: const Color.fromARGB(255, 154, 221, 207),
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,

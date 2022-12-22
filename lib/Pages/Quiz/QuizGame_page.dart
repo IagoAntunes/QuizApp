@@ -103,78 +103,76 @@ class _QuizGamePageState extends State<QuizGamePage> {
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                        color: Color(0xff9087e5),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.person_2_outlined,
-                            color: Colors.white,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            '1',
-                            style: GoogleFonts.rubik(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          )
-                        ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      color: Color(0xff9087e5),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
                       ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: LinearProgressIndicator(
-                          value: (indexQuestion + 1) * 0.5,
-                          backgroundColor: const Color(
-                            0xff887be6,
-                          ),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.person_2_outlined,
                           color: Colors.white,
                         ),
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(10),
-                      decoration: const BoxDecoration(
-                        color: Color(0xffff9b57),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
+                        const SizedBox(
+                          width: 10,
                         ),
-                      ),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.person_2_outlined,
+                        Text(
+                          '1',
+                          style: GoogleFonts.rubik(
                             color: Colors.white,
+                            fontWeight: FontWeight.w800,
                           ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Text(
-                            widget.quiz.points,
-                            style: GoogleFonts.rubik(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          )
-                        ],
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: LinearProgressIndicator(
+                        value: (indexQuestion + 1) * 0.5,
+                        backgroundColor: const Color(
+                          0xff887be6,
+                        ),
+                        color: Colors.white,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: const BoxDecoration(
+                      color: Color(0xffff9b57),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.person_2_outlined,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          widget.quiz.points,
+                          style: GoogleFonts.rubik(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
               ),
               Expanded(
                 child: Padding(

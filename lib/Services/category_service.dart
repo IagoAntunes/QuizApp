@@ -4,8 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:quizapp/Models/category_model.dart';
 import 'package:quizapp/utils/const.dart';
 
-import '../Models/User_model.dart';
-
 class CategoryService {
   Future<List<CategoryModel>> getCategories() async {
     try {

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:quizapp/Models/quiz_model.dart';
 import 'package:sqflite/sqflite.dart';
 

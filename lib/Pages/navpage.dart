@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:quizapp/Pages/Nav/Create/CreateQuestions_page.dart';
 import 'package:quizapp/Pages/Nav/Create/CreateQuiz_page.dart';
 import 'package:quizapp/Pages/Nav/Discover/Discover_page.dart';
 import 'package:quizapp/Pages/Nav/Home/Home_page.dart';
@@ -145,7 +144,8 @@ class _NavPageState extends State<NavPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => CreateQuizPage(),
+                                        builder: (context) =>
+                                            const CreateQuizPage(),
                                       ));
                                 },
                                 child: Container(
