@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:quizapp/Models/quiz_model.dart';
 import 'package:quizapp/Pages/Nav/Create/SelectCategory_page.dart';
 import 'package:quizapp/Pages/Quiz/QuizHome_page.dart';
+import 'package:quizapp/Providers/user_provider.dart';
 import 'package:quizapp/store/QuizPoints.store.dart';
 import 'package:quizapp/utils/const.dart';
 
@@ -25,6 +27,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
   int dropdownValue = 1;
   @override
   Widget build(BuildContext context) {
+    final provUser = context.read<UserProvider>();
     final store = QuizPointStore();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -313,6 +316,7 @@ class _CreateQuizPageState extends State<CreateQuizPage> {
                             listQuestions: [],
                             category: category.value!,
                             points: store.points.toString(),
+                            user: provUser.user!,
                           );
                           Navigator.push(
                             context,

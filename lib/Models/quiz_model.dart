@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:quizapp/Models/question_model.dart';
+import 'package:quizapp/Models/userT_model.dart';
 
 import 'category_model.dart';
 
@@ -12,13 +13,15 @@ class QuizModel {
   List<QuestionModel> listQuestions;
   String? iconImage;
   CategoryModel category;
+  User user;
   QuizModel({
     required this.title,
     required this.description,
     required this.listQuestions,
     required this.points,
-    this.iconImage,
     required this.category,
+    required this.user,
+    this.iconImage,
   });
 
   Map<String, dynamic> toMap() {
@@ -28,6 +31,7 @@ class QuizModel {
       'listQuestions': listQuestions.map((x) => x.toMap()).toList(),
       'iconImage': iconImage,
       'category': category.toMap(),
+      'userCreator': user.toMap(),
       'points': points,
     };
   }
@@ -40,6 +44,7 @@ class QuizModel {
           (map['listQuestions'] as List<QuestionModel>)),
       iconImage: map['iconImage'] != null ? map['iconImage'] as String : null,
       category: map['category'],
+      user: map['userCreator'],
       points: map['points'] as String,
     );
   }

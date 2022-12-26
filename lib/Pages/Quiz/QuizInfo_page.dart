@@ -153,9 +153,12 @@ class _QuizInfoPageState extends State<QuizInfoPage> {
                             ),
                           ),
                           ListTile(
-                            leading: const Icon(Icons.people),
+                            leading: Image.network(
+                              widget.quiz.user.linkAvatar,
+                              scale: 2,
+                            ),
                             title: Text(
-                              widget.quiz.description,
+                              widget.quiz.user.username,
                               style: GoogleFonts.rubik(
                                 fontSize: 15,
                                 color: Colors.black,

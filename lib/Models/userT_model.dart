@@ -19,7 +19,7 @@ class User {
     required this.points,
   });
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap({required}) {
     return <String, dynamic>{
       'objectId': objectId,
       'createdAt': createdAt,
@@ -28,6 +28,8 @@ class User {
       'email': email,
       'linkAvatar': linkAvatar,
       'points': points,
+      '__type': "Pointer",
+      'className': "_User",
     };
   }
 

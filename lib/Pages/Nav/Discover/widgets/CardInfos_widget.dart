@@ -4,8 +4,8 @@ import 'package:quizapp/Models/quiz_model.dart';
 import 'package:quizapp/Pages/Nav/Discover/ListCategories_page.dart';
 import 'package:quizapp/Pages/Nav/Discover/ListQuiz_page.dart';
 
-import '../../../../Models/User_model.dart';
 import '../../../../Models/category_model.dart';
+import '../../../../Models/userT_model.dart';
 import '../../../../utils/const.dart';
 
 class CardInfos extends StatelessWidget {

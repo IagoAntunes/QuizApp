@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/Services/Users_service.dart';
 import 'package:quizapp/utils/const.dart';
 
-import '../../Models/User_model.dart';
+import '../../Models/userT_model.dart';
 
 class ListFriendsPage extends StatelessWidget {
   ListFriendsPage({super.key});

@@ -13,7 +13,7 @@ import 'package:quizapp/Services/Users_service.dart';
 import 'package:quizapp/Services/category_service.dart';
 import 'package:quizapp/Services/createQuiz_service.dart';
 
-import '../../Models/User_model.dart';
+import '../../Models/userT_model.dart';
 import '../../Providers/userParse_provider.dart';
 
 class LoginPage extends StatefulWidget {

@@ -8,9 +8,9 @@ import 'package:quizapp/Providers/listCategory_provider.dart';
 import 'package:quizapp/Providers/listUsers_provider.dart';
 import 'package:quizapp/utils/const.dart';
 
-import '../../../Models/User_model.dart';
 import '../../../Models/category_model.dart';
 import '../../../Models/quiz_model.dart';
+import '../../../Models/userT_model.dart';
 import '../../../Providers/listQuiz_provider.dart';
 
 class DiscoverPage extends StatefulWidget {

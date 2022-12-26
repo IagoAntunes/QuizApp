@@ -7,8 +7,8 @@ import 'package:quizapp/Pages/Nav/Home/widgets/Head_widget.dart';
 import 'package:quizapp/Providers/listQuiz_provider.dart';
 import 'package:quizapp/Providers/user_provider.dart';
 
-import '../../../Models/User_model.dart';
 import '../../../Models/quiz_model.dart';
+import '../../../Models/userT_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

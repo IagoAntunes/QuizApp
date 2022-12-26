@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:quizapp/Models/quiz_model.dart';
+import 'package:quizapp/Models/userT_model.dart';
 import 'package:quizapp/utils/const.dart';
 
 import '../Models/category_model.dart';
@@ -29,7 +30,7 @@ class CreateQuizService {
     List<QuizModel> list = [];
     try {
       final response = await http.get(
-        Uri.parse("$uriApi/parse/classes/Quiz?include=category"),
+        Uri.parse("$uriApi/parse/classes/Quiz?include=category,userCreator"),
         headers: <String, String>{
           'X-Parse-Application-Id': 'rEe5OVkoHsWOc3igs1ofd7vvy0EqKhdStryjaKWJ',
           'X-Parse-REST-API-Key': '4Oeb8idoFeBZQ67vkS4Wi4xYsIdPcJA7uUtE55zE'
@@ -49,6 +50,7 @@ class CreateQuizService {
           "category": CategoryModel.fromMap(
             quiz['category'],
           ),
+          "userCreator": User.fromMap(quiz['userCreator']),
           "points": quiz['points'],
         };
         list.add(QuizModel.fromMap(map));

@@ -37,7 +37,8 @@ class LoginInfoPage extends StatelessWidget {
                       vertical: 10,
                     ),
                     child: Container(
-                      padding: const EdgeInsets.all(15),
+                      padding:
+                          const EdgeInsets.only(left: 15, right: 15, top: 40),
                       decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(

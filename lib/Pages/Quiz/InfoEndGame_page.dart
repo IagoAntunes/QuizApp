@@ -7,9 +7,9 @@ import 'package:quizapp/Pages/navpage.dart';
 import 'package:quizapp/Providers/userParse_provider.dart';
 import 'package:quizapp/Providers/user_provider.dart';
 
-import '../../Models/User_model.dart';
 import '../../Models/game_model.dart';
 import '../../Models/quiz_model.dart';
+import '../../Models/userT_model.dart';
 import '../../utils/const.dart';
 
 class InfoEndGamePage extends StatefulWidget {

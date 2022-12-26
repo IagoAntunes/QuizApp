@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:quizapp/utils/const.dart';
 
-import '../Models/User_model.dart';
+import '../Models/userT_model.dart';
 
 class UsersService {
   Future<List<User>> getUsers() async {

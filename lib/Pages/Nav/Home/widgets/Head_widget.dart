@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../../Models/User_model.dart';
+import '../../../../Models/userT_model.dart';
 
 class Head extends StatelessWidget {
   const Head({
