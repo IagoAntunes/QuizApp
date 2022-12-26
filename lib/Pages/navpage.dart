@@ -3,6 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:quizapp/Pages/Nav/Create/CreateQuiz_page.dart';
 import 'package:quizapp/Pages/Nav/Discover/Discover_page.dart';
 import 'package:quizapp/Pages/Nav/Home/Home_page.dart';
+import 'package:quizapp/Pages/Nav/Profile/profile_page.dart';
 import 'package:quizapp/store/NavPage.store.dart';
 import 'package:quizapp/utils/const.dart';
 
@@ -17,6 +18,8 @@ class _NavPageState extends State<NavPage> {
   List<Widget> pages = [
     const HomePage(),
     const DiscoverPage(),
+    const HomePage(),
+    const ProfilePage(),
   ];
   final store = NavPageStore();
 
