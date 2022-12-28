@@ -10,6 +10,9 @@ class ListFriendsPage extends StatelessWidget {
   List<User> listUsers = [];
   Future<bool> getUsers() async {
     listUsers = await UsersService().getUsers();
+    listUsers.sort(
+      (a, b) => b.points.compareTo(a.points),
+    );
 
     return true;
   }
@@ -95,7 +98,7 @@ class ListFriendsPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  listUsers[index].username.length < 8
+                                  listUsers[index].username.length <= 8
                                       ? listUsers[index].username
                                       : listUsers[index]
                                           .username

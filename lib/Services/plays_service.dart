@@ -20,4 +20,30 @@ class PlaysService {
       return 'Falha ao Enviar';
     }
   }
+
+  Future<List<Play>> getPlays() async {
+    try {
+      List<Play> listPlay = [];
+      final response = await http.get(
+          Uri.parse("$uriApi/parse/classes/Plays?include=quiz"),
+          headers: <String, String>{
+            'X-Parse-Application-Id':
+                'rEe5OVkoHsWOc3igs1ofd7vvy0EqKhdStryjaKWJ',
+            'X-Parse-REST-API-Key': '4Oeb8idoFeBZQ67vkS4Wi4xYsIdPcJA7uUtE55zE',
+            'Content-Type': 'application/json; charset=UTF-8',
+          });
+      var res = jsonDecode(response.body);
+      for (var play in res['results']) {
+        Map<String, dynamic> map = {
+          'quiz': play['quiz'],
+          'user': play['user'],
+          'points': play['points'],
+        };
+        listPlay.add(Play.fromMap(map));
+      }
+      return listPlay;
+    } catch (e) {
+      return [];
+    }
+  }
 }

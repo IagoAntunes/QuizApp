@@ -25,7 +25,7 @@ class Play {
 
   factory Play.fromMap(Map<String, dynamic> map) {
     return Play(
-      quiz: QuizModel.fromMap(map['quiz'] as Map<String, dynamic>),
+      quiz: QuizModel.fromMap(map['quiz'] as Map<String, dynamic>, opc: 1),
       user: User.fromMap(map['user'] as Map<String, dynamic>),
       points: map['points'] as String,
     );

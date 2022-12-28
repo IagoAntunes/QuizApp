@@ -46,7 +46,21 @@ class QuizModel {
     };
   }
 
-  factory QuizModel.fromMap(Map<String, dynamic> map) {
+  factory QuizModel.fromMap(Map<String, dynamic> map, {int opc = 0}) {
+    if (opc == 1) {
+      return QuizModel(
+        objectId: map['objectId'] ?? '',
+        title: map['title'] as String,
+        description: map['description'] as String,
+        listQuestions: List<QuestionModel>.from(
+            (map['listQuestions'] as List<dynamic>)
+                .map<QuestionModel>((e) => QuestionModel.fromMap(e))),
+        iconImage: map['iconImage'] != null ? map['iconImage'] as String : null,
+        category: CategoryModel.fromMap(map['category']),
+        user: User.fromMap(map['userCreator']),
+        points: map['points'] as String,
+      );
+    }
     return QuizModel(
       objectId: map['objectId'] ?? '',
       title: map['title'] as String,

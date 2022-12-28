@@ -36,12 +36,12 @@ class User {
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
       objectId: map['objectId'] as String,
-      createdAt: map['createdAt'] as String,
-      updatedAt: map['updatedAt'] as String,
-      username: map['username'] as String,
+      createdAt: map['createdAt'] ?? '',
+      updatedAt: map['updatedAt'] ?? '',
+      username: map['username'] ?? '',
       email: map['email'] ?? "",
-      linkAvatar: map['linkAvatar'] as String,
-      points: map['points'] as int,
+      linkAvatar: map['linkAvatar'] ?? '',
+      points: map['points'] ?? 0,
     );
   }
 

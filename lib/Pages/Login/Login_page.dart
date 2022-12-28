@@ -59,9 +59,11 @@ class _LoginPageState extends State<LoginPage> {
         return true;
       } else {
         showError(response.error!.message);
+        loading.value = false;
         return false;
       }
     } catch (e) {
+      loading.value = false;
       return false;
     }
   }
@@ -217,7 +219,6 @@ class _LoginPageState extends State<LoginPage> {
                             if (value == false) {
                               loading.value = true;
                               doUserLogin();
-                              loading.value = false;
                             }
                           },
                           style: ElevatedButton.styleFrom(
@@ -230,8 +231,10 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(15),
-                            child: value
-                                ? const CircularProgressIndicator()
+                            child: loading.value
+                                ? const CircularProgressIndicator(
+                                    color: Colors.white,
+                                  )
                                 : const Text('Login'),
                           ),
                         ),

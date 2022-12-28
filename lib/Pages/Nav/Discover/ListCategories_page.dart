@@ -127,25 +127,6 @@ class _ListCategoriesPageState extends State<ListCategoriesPage> {
                   },
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(25),
-                child: SizedBox(
-                  width: size.width,
-                  height: 50,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: primaryColor,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20),
-                        ),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: const Text("Next"),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
