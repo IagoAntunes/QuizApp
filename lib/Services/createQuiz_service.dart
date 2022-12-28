@@ -39,6 +39,7 @@ class CreateQuizService {
       var res = jsonDecode(response.body);
       for (var quiz in res['results']) {
         Map<String, dynamic> map = {
+          "objectId": quiz['objectId'] as String,
           "title": quiz['title'] as String,
           "description": quiz['description'] as String,
           "listQuestions": List<QuestionModel>.from(

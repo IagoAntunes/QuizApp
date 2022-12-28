@@ -236,7 +236,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
           late final user = ParseUser.createUser(username, password, email)
             ..set("linkAvatar", listAvatarImages[selectedIndex]);
-
           var response = await user.signUp();
           if (response.success) {
             showSuccess(context);

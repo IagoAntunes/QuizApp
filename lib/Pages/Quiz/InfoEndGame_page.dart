@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:provider/provider.dart';
+import 'package:quizapp/Models/play_model.dart';
 import 'package:quizapp/Pages/Quiz/ReviewAnswers_page.dart';
 import 'package:quizapp/Pages/navpage.dart';
 import 'package:quizapp/Providers/userParse_provider.dart';
 import 'package:quizapp/Providers/user_provider.dart';
+import 'package:quizapp/Services/plays_service.dart';
 
 import '../../Models/game_model.dart';
 import '../../Models/quiz_model.dart';
@@ -264,18 +266,27 @@ class _InfoEndGamePageState extends State<InfoEndGamePage> {
                             ),
                           ),
                         ),
-                        onPressed: () {
+                        onPressed: () async {
+                          String points = '0';
                           UserParseProvider parseProv =
                               context.read<UserParseProvider>();
                           ParseUser parseUser = parseProv.userParse!;
                           UserProvider userProv = context.read<UserProvider>();
                           User? user = userProv.user;
-                          parseUser.set(
-                            'points',
-                            user!.points + int.parse(widget.quiz.points),
-                          );
-                          parseUser.update();
-
+                          if (widget.game.listCorrect
+                                  .where((element) => element == 1)
+                                  .length >=
+                              (widget.game.listCorrect.length / 2).round()) {
+                            points = widget.quiz.points;
+                            parseUser.set(
+                              'points',
+                              user!.points + int.parse(widget.quiz.points),
+                            );
+                            parseUser.update();
+                          }
+                          Play play = Play(
+                              user: user!, quiz: widget.quiz, points: points);
+                          await PlaysService().postPlay(play.toJson());
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(

@@ -7,6 +7,7 @@ import 'package:quizapp/Models/userT_model.dart';
 import 'category_model.dart';
 
 class QuizModel {
+  String? objectId;
   String title;
   String description;
   String points;
@@ -17,15 +18,24 @@ class QuizModel {
   QuizModel({
     required this.title,
     required this.description,
-    required this.listQuestions,
     required this.points,
+    required this.listQuestions,
+    this.objectId,
+    this.iconImage,
     required this.category,
     required this.user,
-    this.iconImage,
   });
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap(int opc) {
+    if (opc == 1) {
+      return <String, dynamic>{
+        '__type': "Pointer",
+        'className': "Quiz",
+        'objectId': objectId,
+      };
+    }
     return <String, dynamic>{
+      'objectid': objectId,
       'title': title,
       'description': description,
       'listQuestions': listQuestions.map((x) => x.toMap()).toList(),
@@ -38,6 +48,7 @@ class QuizModel {
 
   factory QuizModel.fromMap(Map<String, dynamic> map) {
     return QuizModel(
+      objectId: map['objectId'] ?? '',
       title: map['title'] as String,
       description: map['description'] as String,
       listQuestions: List<QuestionModel>.from(
@@ -49,7 +60,7 @@ class QuizModel {
     );
   }
 
-  String toJson() => json.encode(toMap());
+  String toJson() => json.encode(toMap(0));
 
   factory QuizModel.fromJson(String source) =>
       QuizModel.fromMap(json.decode(source) as Map<String, dynamic>);
